@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&subset=cyrillic');
+
+body, html {
+    height: 100%;
+}
+
+body {
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    font-size: 16px;
+    background: url(./img/bg.jpg);
+    background-size: cover;
+}
+
+#root {
+    height: 100%;
+}
+
+.App {
+    height: 100%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+}
+
+header a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.header__logo {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.header__nav a {
+    margin: 10px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: #fff;
+    padding: 10px;
+}
+
+h1 {
+    margin: 0;
+}
+
+.intro-text {
+    text-align: center;
+}
+
+.intro-text span {
+    display: block;
+    margin-bottom: 20px;
+    font-size: 22px;
+}
+
+button {
+    background: #4caf50;
+    padding: 10px 25px;
+    font-size: 20px;
+    border: 0;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+}
+
+button:hover {
+    background: #4aaa10;
+}
