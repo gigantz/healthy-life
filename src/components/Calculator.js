@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
 import { Button, Modal, Select, Image } from 'semantic-ui-react'
 
+const age = [
+      {key: '10', value: '10', text: '10'},
+      {key: '11', value: '11', text: '11'},
+      {key: '12', value: '12', text: '12'},
+      {key: '13', value: '13', text: '13'}
+      ]
+
 class Calculator extends Component {
 
     state = {
       open: false,
-      age: 40,
+      age: 10,
       weight: 10,
       height: 10,
       activity: 1
@@ -17,13 +24,6 @@ class Calculator extends Component {
       this.handleChange = this.handleChange.bind(this);
       this.calculate = this.calculate.bind(this);
   }
-
-    age = [
-      {key: '10', value: '10', text: '10'},
-      {key: '11', value: '11', text: '11'},
-      {key: '12', value: '12', text: '12'},
-      {key: '13', value: '13', text: '13'}
-      ]
 
     weight = [
       {key: '10', value: '10', text: '10'},
@@ -50,9 +50,10 @@ class Calculator extends Component {
     close = () => this.setState({ open: false })
     show = () => () => this.setState({ open: true })
 
-    handleChange(event) {
-      console.log(event.target.value);
-      debugger;
+    handleChange(event, component) {
+      this.setState({
+        [component] : event.target.textContent
+      });
     }
     calculate () {
       const { sex, age, weight, activity } = this.state;
@@ -60,8 +61,7 @@ class Calculator extends Component {
     }
 
     render() {
-      const { open } = this.state
-      const { sex } = this.state;
+      const { sex, open } = this.state;
       return (
         <div>
           <Button size="massive" color="green" onClick={ this.show(true) }>Calculate</Button>
@@ -73,15 +73,15 @@ class Calculator extends Component {
               <Modal.Description>
                 <h3>Select your gender</h3>
                 <Button.Group>
-                  <Button positive={sex==="male"} onClick={() => this.setSt({sex: "male"})}>Male</Button>
+                  <Button positive={sex==="male"} onClick={() => this.setState({sex: "male"})}>Male</Button>
                   <Button.Or/>
                   <Button positive={sex==="female"} onClick={() => this.setState({ sex: "female" })}>Female</Button>
                 </Button.Group>
                 <h3>Select your age</h3>
-                <Select placeholder='age'
-                  value={this.state.age}
-                  options={this.age}
-                  onChange={this.handleChange}/>
+                <Select
+                  options={age}
+                  placeholder={this.state.age}
+                  onChange={(e) => { this.handleChange(e, 'age') } }/>
                 <h3>Select your weight</h3>
                 <Select placeholder='wight'
                   value={this.state.age}
