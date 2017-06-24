@@ -10,12 +10,11 @@ class App extends Component {
   }
 
   changePage (page) {
-    this.setState({ activePage: page });
+    this.setState( { activePage: page } );
   }
 
   render() {
     const { activePage } = this.state;
-
     return (
       <div className="App">
         <Header nav={ this.changePage.bind(this) } />

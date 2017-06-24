@@ -70,18 +70,3 @@ h1 {
     margin-bottom: 20px;
     font-size: 22px;
 }
-
-button {
-    background: #4caf50;
-    padding: 10px 25px;
-    font-size: 20px;
-    border: 0;
-    border-radius: 4px;
-    color: #fff;
-    cursor: pointer;
-    outline: none;
-}
-
-button:hover {
-    background: #4aaa10;
-}
